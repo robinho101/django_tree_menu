@@ -1,0 +1,49 @@
+.all_menus_title {
+font-size:20px;
+}
+
+.title_plus_minus_wrapper {
+position:relative;
+cursor:pointer;
+}
+
+.nontitle_plus_minus_wrapper {
+position:relative;
+left:-10px;
+cursor:pointer;
+}
+
+.plus_minus {
+position:absolute;
+}
+
+.minus{
+display:none;
+}
+
+.menu_title{
+margin-top:10px;
+position: relative;
+left: 10px;
+}
+
+.field_name_wrapper {
+position: relative;
+left: 25px;
+}
+
+.branch_name_wrapper {
+position: relative;
+left: 40px;
+}
+
+.nest_name_wrapper {
+position: relative;
+left: 55px;
+}
+
+.wrappers {
+display:none;
+margin-top:5px;
+margin-bottom:5px;
+}

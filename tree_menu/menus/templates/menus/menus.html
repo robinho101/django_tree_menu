@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load menus_tags %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'menus/css/menus.css' %}">
+{% endblock link %}
+
+{% block content %}
+
+{% draw_menu 'main_menu' %}
+
+{% endblock content %}
+
+
+{% block script %}
+<script type="module" src="{% static 'menus/js/menus.js' %}"></script>
+{% endblock script %}

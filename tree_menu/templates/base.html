@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>древовидные меню</title>
+    <link rel="stylesheet" href="{% static 'menus/css/style.css' %}">
+    {% block link %}
+    {% endblock link %}
+</head>
+<body>
+
+<div class="wrapper">
+    <h1>древовидные меню</h1>
+
+
+    {% block content %}
+
+    {% endblock content %}
+</div>
+
+<script type="module" src="{% static 'menus/js/script.js' %}"></script>
+{% block script %}
+{% endblock script %}
+</body>
+</html>
