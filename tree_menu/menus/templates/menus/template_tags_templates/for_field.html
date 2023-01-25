@@ -1,0 +1,66 @@
+{% extends 'menus/template_tags_templates/for_all_menus.html' %}
+
+{% block menu %}
+<p class="all_menus_title">меню</p>
+{% endblock menu %}
+
+{% block menucicle %}
+
+{% for item in menus %}
+
+{% if menus_id == item.menu_name.id %}
+
+{% ifchanged item.menu_name.title %}
+<div class="title_wrapper">
+    <div class="title_plus_minus_wrapper" data-titleToClose="title_to_close">
+        <div class="plus_minus minus">–</div>
+        <div class="plus_minus plus" data-title="{{ item.menu_name.title }}">+</div>
+    </div>
+    <div class="menu_title">
+        <span>{{ item.menu_name.title }}</span>
+    </div>
+</div>
+{% endifchanged %}
+
+{% ifchanged item.field_name %}
+<div class="{{ item.menu_name.title }} wrappers field_name_wrapper {{ item.menu_name.title }}">
+    <div class="nontitle_plus_minus_wrapper field_name{{ item.field_name }}"
+         data-fieldToClose="field_name_to_close">
+        <div class="plus_minus minus">–</div>
+        <div class="plus_minus plus" data-field="{{ item.field_name|cut:' ' }}">+</div>
+    </div>
+    <div class="{{ item.menu_name.title }}2">
+        <a class="field_name" href="{% url 'field' item.menu_name.id item.field_name|cut:' ' %}">
+            {{ item.field_name }} </a>
+    </div>
+</div>
+{% endifchanged %}
+
+{% ifchanged item.branch_name %}
+<div class="{{ item.menu_name.title }} {{ item.field_name }} wrappers branch_name_wrapper">
+    <div class="nontitle_plus_minus_wrapper field_name{{ item.field_name }} branch_name{{ item.branch_name }}">
+        <div class="plus_minus minus">–</div>
+        <div class="plus_minus plus" data-field="{{ item.field_name|cut:' ' }}">+</div>
+    </div>
+    <div class="{{ item.menu_name.title }}3">
+        <a class="branch_name"
+           href="{% url 'field' item.menu_name.id item.field_name|cut:' ' %}">
+            {{ item.branch_name }}
+        </a>
+    </div>
+</div>
+{% endifchanged %}
+
+{% ifchanged item.nest_name %}
+<div class="{{ item.menu_name.title }} {{ item.field_name }} wrappers nest_name_wrapper {{ item.branch_name }}">
+    <a class="nest_name"
+       href="{% url 'field' item.menu_name.id item.field_name|cut:' ' %}">
+        {{ item.nest_name}} </a>
+</div>
+{% endifchanged %}
+
+{% endif %}
+
+{% endfor %}
+<hr class="all_menus_hr">
+{% endblock menucicle %}

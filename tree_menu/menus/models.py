@@ -11,7 +11,7 @@ class Menu(models.Model):
         verbose_name_plural = 'Меню'
 
     def __str__(self):
-        return 'Меню: ' + self.title
+        return self.title
 
 
 class Fields(models.Model):
@@ -26,3 +26,5 @@ class Fields(models.Model):
 
     def __str__(self):
         return 'Поле: ' + self.field_name
+
+

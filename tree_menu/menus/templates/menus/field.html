@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load menus_tags %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'menus/css/field.css' %}">
+{% endblock link %}
+
+{% block content %}
+
+{% field %}
+
+{% endblock content %}
+
+
+{% block script %}
+<script type="module" src="{% static 'menus/js/field.js' %}"></script>
+{% endblock script %}
