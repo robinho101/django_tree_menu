@@ -1,21 +1,21 @@
 import json
 from django import template
-from django.db.models import Prefetch
 from django.core.cache import cache
 from menus.models import *
 
 register = template.Library()
 
 
-def cache_search(request):
+def cache_search(request): # кэш хранится полдня #
     user_req = json.loads(request.body)
     passed_names = set()
-    if 'menu_name_to_delete' in user_req:
+    if 'menu_name_to_delete' in user_req:  # если ключ есть, то извлекаем из кэша множество(set) , #
+        # и удаляем переданное со страницы название меню по ключу #
         passed_names = cache.get('menu_name')
         passed_names.discard(user_req['menu_name_to_delete'].lower())
         cache.set('menu_name', passed_names, 43200)
 
-    if 'menu_name' in user_req:
+    if 'menu_name' in user_req:  # тоже самое, только добавление меню #
         if cache.get('menu_name'):
             passed_names = cache.get('menu_name')
             passed_names.add(user_req['menu_name'].replace(' ', ''))
